@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrystalMC - Home</title>
+    <meta name="description" content="The best Minecraft server for Crystal PvP: CrystalMC">
+    <meta property="og:title" content="CrystalMC - Home">
+    <meta property="og:description" content="Welcome to CrystalMC">
+    <meta property="og:image" content="">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CrystalMC - Home">
+    <meta name="twitter:description" content="The best Minecraft server for Crystal PvP: CrystalMC">
+    <meta name="twitter:image" content="">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="ambient-bg">
+
+    </div>
+    <div class="grid-overlay"></div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="">Store</a></li>
+                <li><a href="">Vote</a></li>
+                <li><a href="">Discord</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <img class="logo" src="images/16965384-logosimple_xl.webp">
+        <div class="desc1">
+            <h1>CrystalMC</h1>
+            <p>The best Minecraft server for Crystal PvP: CrystalMC.</p>
+        
+            <div class="ip-box" onclick="copyIP()">
+                <div class="ip-header-box"><p class="iptext-header">IP:</p></div><p class="ip-text">crystalmc.org</p>
+            </div>
+        </div>
+        
+    </main>
+    <script>
+        function copyIP() {
+            const ipText = document.querySelector('.ip-text').textContent;
+            navigator.clipboard.writeText(ipText).then(() => {
+                alert('IP copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy IP:', err);
+            });
+        }
+    </script>
+    <div class="cmc-desc">
+        <h2>About CrystalMC</h2>
+        <p>insert insanely attractive description here</p>
+    </div>
+    <footer>
+        Copyright © 2026 MarkedExiled. All rights reserved.
+    </footer>
+</body>
