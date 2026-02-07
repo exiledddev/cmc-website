@@ -23,11 +23,11 @@
     <header>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="">Store</a></li>
-                <li><a href="">Vote</a></li>
-                <li><a href="">Discord</a></li>
-                <li><a href="">Contact</a></li>
+                <li><a href="index.html" class="anim-ul">Home</a></li>
+                <li><a href="" class="anim-ul">Store</a></li>
+                <li><a href="" class="anim-ul">Vote</a></li>
+                <li><a href="" class="anim-ul">Discord</a></li>
+                <li><a href="" class="anim-ul">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -36,10 +36,26 @@
         <img class="logo" src="images/server-icon.png">
         <div class="desc1">
             <h1>CrystalMC</h1>
-            <p>The best Minecraft server for Crystal PvP: CrystalMC.</p>
+            <p class="defdesc">The best Minecraft server for Crystal PvP: CrystalMC.</p>
         
             <div class="ip-box" onclick="copyIP()">
                 <div class="ip-header-box"><p class="iptext-header">IP:</p></div><p class="ip-text">crystalmc.org</p>
+            </div>
+            <div class="menu-grid" id="menuGrid">
+                <div class="menu-item" onclick="window.open('', '_blank'); window.location.reload();">
+                    <div class="cont-logo">
+                        <img src="images/4031ababfb3120d1c9e6beb8d2cf07a9a2f27740.png" alt="">
+                    </div>
+                    <h2>Store</h2>
+                    <p>Purchase ranks, cosmetics, and more to enhance your experience on CrystalMC.</p>
+                </div>
+                <div class="menu-item" onclick="window.open('', '_blank'); window.location.reload();">
+                    <div class="cont-logo">
+                        <img src="images/4d39645bd345af719dd1a2397d8d49b497436ede.png" alt="">
+                    </div>
+                    <h2>Coins</h2>
+                    <p>Buy coins for CrystalMC and use them to buy exclusive in-game items.</p>
+                </div>
             </div>
         </div>
         
@@ -48,16 +64,17 @@
         function copyIP() {
             const ipText = document.querySelector('.ip-text').textContent;
             navigator.clipboard.writeText(ipText).then(() => {
-                alert('IP copied to clipboard!');
+               
             }).catch(err => {
                 console.error('Failed to copy IP:', err);
             });
         }
     </script>
-    <div class="cmc-desc">
+<!--<div class="cmc-desc">
         <h2>About CrystalMC</h2>
         <p>insert insanely attractive description here</p>
     </div>
+-->
     <footer>
         Copyright © 2026 MarkedExiled. All rights reserved.
     </footer>
