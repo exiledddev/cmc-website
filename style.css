@@ -110,7 +110,7 @@ nav li {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin: 0 auto;
+	margin: 100px auto 0 auto;
 }
 
 .ambient-bg {
@@ -168,7 +168,7 @@ footer {
 }
 
 h1{
-    font-size: 48px;
+    font-size: 70px;
     margin-bottom: 20px;
 }
 
