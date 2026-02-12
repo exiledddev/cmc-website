@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.menu-grid');
 
-  fetch('http://localhost:3000/staff')
+  fetch('https://cmc-website.onrender.com/staff')
     .then(res => res.json())
     .then(staff => {
       container.innerHTML = '';
