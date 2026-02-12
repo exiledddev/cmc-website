@@ -16,9 +16,14 @@
 </head>
 
 <body>
-    <div class="ambient-bg">
+    <!-- <div class="ambient-bg">
 
-    </div>
+    </div> -->
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="Sequence 01_13.webm" type="video/mp4">
+        Your browser does not support the video tag.
+
+    </video>
     <div class="grid-overlay"></div>
     <header>
         <nav>
@@ -33,16 +38,16 @@
     </header>
 
     <main>
-        <img class="logo" src="images/server-icon.png">
+        <img class="logo intro" src="images/server-icon.png">
         <div class="desc1">
-            <h1>CrystalMC</h1>
-            <p class="defdesc">The best Minecraft server for Crystal PvP: CrystalMC.</p>
+            <h1 class="intro">CrystalMC</h1>
+            <p class="defdesc intro">The best Minecraft server for Crystal PvP: CrystalMC.</p>
         
             <div class="ip-box" onclick="copyIP()">
                 <div class="ip-header-box"><p class="iptext-header">IP:</p></div><p class="ip-text">crystalmc.org</p>
             </div>
-            <div class="menu-grid" id="menuGrid">
-                <div class="menu-item" onclick="window.open('', '_blank'); window.location.reload();">
+            <div class="menu-grid intro" id="menuGrid">
+                <div class="menu-item" onclick="window.open('https://crystalmc-1.mcsets.com/', '_blank'); window.location.reload();">
                     <div class="cont-logo">
                         <img src="images/4031ababfb3120d1c9e6beb8d2cf07a9a2f27740.png" alt="">
                     </div>
@@ -70,6 +75,22 @@
             });
         }
     </script>
+    <script>
+        window.addEventListener("load", () => {
+        const elements = document.querySelectorAll(".intro");
+
+        elements.forEach(el => {
+            const distanceFromTop = el.getBoundingClientRect().top + window.scrollY;
+
+            // adjust multiplier to control delay strength
+            const delay = distanceFromTop * 0.0015;
+
+            el.style.transitionDelay = `${delay}s`;
+            el.classList.add("active");
+        });
+        });
+    </script>
+
 <!--<div class="cmc-desc">
         <h2>About CrystalMC</h2>
         <p>insert insanely attractive description here</p>
