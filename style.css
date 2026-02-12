@@ -368,7 +368,7 @@ h1{
 	border-radius: 25px;
 	padding: 2px 5px;
 	margin-top:5px;
-	margin: 5px auto 0; /* <-- auto left/right centers it */
+	margin: 5px auto 0;
 	background:linear-gradient(90deg, rgb(255, 153, 0),rgb(255, 187, 0));
 	box-shadow: 0 0 20px var(--action-glow); 
 }

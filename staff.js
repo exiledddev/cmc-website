@@ -1,11 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Use .menu-grid as the container
   const container = document.querySelector('.menu-grid');
 
   fetch('http://localhost:3000/staff')
     .then(res => res.json())
     .then(staff => {
-      container.innerHTML = ''; // clear previous items
+      container.innerHTML = '';
 
     const rankPriority = {
         owner: 1,
@@ -25,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       staff.forEach(member => {
         // create the staff div
         const div = document.createElement('div');
-        div.classList.add('menu-item'); // use your existing styling
+        div.classList.add('menu-item');
 
         // Minecraft head
         const img = document.createElement('img');
@@ -54,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         div.appendChild(img);
         div.appendChild(infoDiv);
 
-        // add the staff div to the menu grid
+        // add the staff div to menu grid
         container.appendChild(div);
       });
     })
