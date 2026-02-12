@@ -25,10 +25,35 @@ app.post('/staff', (req, res) => {
     const staff = JSON.parse(fs.readFileSync('staff.json', 'utf8'));
     staff.push(req.body); // { ign: "Player123", skin: "url" }
     fs.writeFileSync('staff.json', JSON.stringify(staff, null, 2));
-    res.json({ msg: 'Staff added!', staff });
+    res.json({ success: true, added: { ign, rank } });
   } catch (err) {
-    res.status(500).json({ error: 'Failed to write staff data' });
+    console.error(err);
+    res.json({ success: false, error: err.message || 'Unknown error' });
   }
+});
+
+// DELETE staff member by IGN
+app.delete('/staff', (req, res) => {
+    const { ign } = req.body;
+
+    if (!ign) return res.json({ success: false, error: 'Missing IGN' });
+
+    try {
+        const staff = JSON.parse(fs.readFileSync('staff.json', 'utf8'));
+        const index = staff.findIndex(s => s.ign.toLowerCase() === ign.toLowerCase());
+
+        if (index === -1) {
+            return res.json({ success: false, error: 'Staff member not found' });
+        }
+
+        const removed = staff.splice(index, 1)[0];
+        fs.writeFileSync('staff.json', JSON.stringify(staff, null, 2));
+
+        res.json({ success: true, removed });
+    } catch (err) {
+        console.error(err);
+        res.json({ success: false, error: err.message });
+    }
 });
 
 app.listen(port, () => {
