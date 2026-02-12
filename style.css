@@ -51,7 +51,7 @@ body {
   height: 100vh;
   object-fit: cover;
   z-index: -3;
-  opacity:5%;
+  opacity:15%;
 }
 
 .intro {
@@ -148,6 +148,30 @@ nav a {
 	color: var(--dark-1);
 }
 
+.desc2-text {
+	width:50%;
+	background: var(--glass-bg);
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	border: 1px solid var(--glass-border);
+	border-radius: 24px;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 20px 30px;
+	cursor:default;
+	position: relative;
+	overflow: hidden;
+	opacity: 0;
+	margin-bottom: 30px;
+	margin: 0 auto 30px auto;
+	margin-top:25px;
+	font-size: 20px;
+	font-weight: 400;
+	text-align:center;
+}
+
 nav ul, nav ol {
 	display: flex;
 	list-style:none;
@@ -198,7 +222,7 @@ nav a.anim-ul:hover::after {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin: 100px auto 0 auto;
+	margin: 80px auto 0 auto;
 	position: relative;
 	z-index:2;
 }
@@ -226,6 +250,7 @@ nav a.anim-ul:hover::after {
 	background-size: 80px 80px;
 	pointer-events: none;
 	z-index: 0;
+	opacity:0%;
 }
 
 .cmc-desc {
