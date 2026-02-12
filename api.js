@@ -19,13 +19,20 @@ app.get('/staff', (req, res) => {
   }
 });
 
-// Add staff member (optional endpoint)
+// Add staff member
 app.post('/staff', (req, res) => {
   try {
+    const { ign, rank } = req.body; // grab ign & rank from request
+
+    if (!ign || !rank) {
+      return res.json({ success: false, error: 'Missing ign or rank' });
+    }
+
     const staff = JSON.parse(fs.readFileSync('staff.json', 'utf8'));
-    staff.push(req.body); // { ign: "Player123", skin: "url" }
+    staff.push({ ign, rank }); // push new entry
     fs.writeFileSync('staff.json', JSON.stringify(staff, null, 2));
-    res.json({ success: true, added: { ign, rank } });
+
+    res.json({ success: true, added: { ign, rank } }); // respond properly
   } catch (err) {
     console.error(err);
     res.json({ success: false, error: err.message || 'Unknown error' });
@@ -34,26 +41,26 @@ app.post('/staff', (req, res) => {
 
 // DELETE staff member by IGN
 app.delete('/staff', (req, res) => {
-    const { ign } = req.body;
+  const { ign } = req.body;
 
-    if (!ign) return res.json({ success: false, error: 'Missing IGN' });
+  if (!ign) return res.json({ success: false, error: 'Missing IGN' });
 
-    try {
-        const staff = JSON.parse(fs.readFileSync('staff.json', 'utf8'));
-        const index = staff.findIndex(s => s.ign.toLowerCase() === ign.toLowerCase());
+  try {
+    const staff = JSON.parse(fs.readFileSync('staff.json', 'utf8'));
+    const index = staff.findIndex(s => s.ign.toLowerCase() === ign.toLowerCase());
 
-        if (index === -1) {
-            return res.json({ success: false, error: 'Staff member not found' });
-        }
-
-        const removed = staff.splice(index, 1)[0];
-        fs.writeFileSync('staff.json', JSON.stringify(staff, null, 2));
-
-        res.json({ success: true, removed });
-    } catch (err) {
-        console.error(err);
-        res.json({ success: false, error: err.message });
+    if (index === -1) {
+      return res.json({ success: false, error: 'Staff member not found' });
     }
+
+    const removed = staff.splice(index, 1)[0];
+    fs.writeFileSync('staff.json', JSON.stringify(staff, null, 2));
+
+    res.json({ success: true, removed });
+  } catch (err) {
+    console.error(err);
+    res.json({ success: false, error: err.message });
+  }
 });
 
 app.listen(port, () => {
