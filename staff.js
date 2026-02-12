@@ -1,0 +1,63 @@
+document.addEventListener('DOMContentLoaded', () => {
+  // Use .menu-grid as the container
+  const container = document.querySelector('.menu-grid');
+
+  fetch('http://localhost:3000/staff')
+    .then(res => res.json())
+    .then(staff => {
+      container.innerHTML = ''; // clear previous items
+
+    const rankPriority = {
+        owner: 1,
+        manager: 2,
+        developer:3,
+        admin: 4,
+        mod: 5,
+        helper: 6
+    };
+
+    staff.sort((a, b) => {
+        const rankA = rankPriority[(a.rank || '').toLowerCase()] ?? 999;
+        const rankB = rankPriority[(b.rank || '').toLowerCase()] ?? 999;
+        return rankA - rankB;
+    });
+
+      staff.forEach(member => {
+        // create the staff div
+        const div = document.createElement('div');
+        div.classList.add('menu-item'); // use your existing styling
+
+        // Minecraft head
+        const img = document.createElement('img');
+        img.src = `https://mc-heads.net/avatar/${member.ign}/100`;
+        img.alt = member.ign;
+
+        // info container for IGN + rank
+        const infoDiv = document.createElement('div');
+        infoDiv.classList.add('staff-info');
+
+        // IGN
+        const ign = document.createElement('div');
+        ign.classList.add('ign');
+        ign.textContent = member.ign;
+
+        // Rank
+        const rank = document.createElement('div');
+        rank.classList.add('rank');
+        rank.textContent = member.rank;
+        rank.classList.add(member.rank.toLowerCase());
+
+        infoDiv.appendChild(ign);
+        infoDiv.appendChild(rank);
+
+        // append image + info to the main div
+        div.appendChild(img);
+        div.appendChild(infoDiv);
+
+        // add the staff div to the menu grid
+        container.appendChild(div);
+      });
+    })
+    .catch(err => console.error('Error fetching staff:', err));
+});
+
