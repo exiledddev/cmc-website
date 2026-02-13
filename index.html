@@ -58,10 +58,10 @@
             const popup = document.getElementById('dcpopup-ovr');
             const closeBtn = document.getElementById('popup-close');
 
-            // Show popup (default is visible if you want)
+            // show popup (mmmm bloatware)
             popup.style.display = 'flex';
 
-            // Close on click X
+            // Close on click X (yes this script is COMPLETELY ripped off of stack overflow, along with some others around here. I don't do JS that much #jshate)
             closeBtn.addEventListener('click', () => {
                 popup.style.display = 'none';
             });
@@ -115,7 +115,7 @@
         elements.forEach(el => {
             const distanceFromTop = el.getBoundingClientRect().top + window.scrollY;
 
-            // adjust multiplier to control delay strength
+            // adjust multiplier to control delay str
             const delay = distanceFromTop * 0.0015;
 
             el.style.transitionDelay = `${delay}s`;

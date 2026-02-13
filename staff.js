@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const div = document.createElement('div');
         div.classList.add('menu-item');
 
-        // Minecraft head
+        // mc head
         const img = document.createElement('img');
         img.src = `https://mc-heads.net/avatar/${member.ign}/100`;
         img.alt = member.ign;
@@ -35,12 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const infoDiv = document.createElement('div');
         infoDiv.classList.add('staff-info');
 
-        // IGN
+        // ign
         const ign = document.createElement('div');
         ign.classList.add('ign');
         ign.textContent = member.ign;
 
-        // Rank
+        // rank
         const rank = document.createElement('div');
         rank.classList.add('rank');
         rank.textContent = member.rank;
@@ -55,6 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // add the staff div to menu grid
         container.appendChild(div);
+
+        // i hate javascript
       });
     })
     .catch(err => console.error('Error fetching staff:', err));

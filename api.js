@@ -1,5 +1,3 @@
-// Install dependencies first: npm init -y && npm i express cors
-
 const express = require('express');
 const fs = require('fs');
 const cors = require('cors');
@@ -9,7 +7,6 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 
-// Get all staff
 app.get('/staff', (req, res) => {
   try {
     const staff = JSON.parse(fs.readFileSync('staff.json', 'utf8'));
@@ -22,17 +19,17 @@ app.get('/staff', (req, res) => {
 // Add staff member
 app.post('/staff', (req, res) => {
   try {
-    const { ign, rank } = req.body; // grab ign & rank from request
+    const { ign, rank } = req.body;
 
     if (!ign || !rank) {
       return res.json({ success: false, error: 'Missing ign or rank' });
     }
 
     const staff = JSON.parse(fs.readFileSync('staff.json', 'utf8'));
-    staff.push({ ign, rank }); // push new entry
+    staff.push({ ign, rank });
     fs.writeFileSync('staff.json', JSON.stringify(staff, null, 2));
 
-    res.json({ success: true, added: { ign, rank } }); // respond properly
+    res.json({ success: true, added: { ign, rank } });
   } catch (err) {
     console.error(err);
     res.json({ success: false, error: err.message || 'Unknown error' });
@@ -67,7 +64,7 @@ app.put('/staff', (req, res) => {
 });
 
 
-// DELETE staff member by IGN
+// DELETE staff member
 app.delete('/staff', (req, res) => {
   const { ign } = req.body;
 
