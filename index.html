@@ -38,6 +38,35 @@
     </header>
 
     <main>
+        <div id="dcpopup-ovr">
+                <div id="dcpopup">
+                    <button id="popup-close">✖</button>
+                    <div class="popup-content">
+                        <div class="popup-text">
+                        <h2>Join our Discord!</h2>
+                        <p>Click the button below to join our vibrant community of Minecraft enthusiasts and experience the thrill of Crystal PvP like never before. With a dedicated player base, regular events, and a wide range of features, CrystalMC is the ultimate destination for all your Minecraft adventures.</p>
+                        <button onclick="window.open('https://discord.gg/JXZFyN9Jgp', '_blank'); window.location.reload();">Join Now</button>
+                        </div>
+                        <div class="popup-discord">
+                            <iframe class="dcint" src="https://discord.com/widget?id=919999227252326410&theme=dark" width="250" height="350" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+                        </div>
+                    </div>
+        </div>
+        </div>
+        <script>
+            window.addEventListener('DOMContentLoaded', () => {
+            const popup = document.getElementById('dcpopup-ovr');
+            const closeBtn = document.getElementById('popup-close');
+
+            // Show popup (default is visible if you want)
+            popup.style.display = 'flex';
+
+            // Close on click X
+            closeBtn.addEventListener('click', () => {
+                popup.style.display = 'none';
+            });
+            });
+        </script>
         <img class="logo intro" src="images/server-icon.png">
         <div class="desc1">
             <h1 class="intro">CrystalMC</h1>
