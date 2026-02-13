@@ -39,6 +39,34 @@ app.post('/staff', (req, res) => {
   }
 });
 
+// UPDATE staff rank
+app.put('/staff', (req, res) => {
+  const { ign, rank } = req.body;
+
+  if (!ign || !rank) {
+    return res.json({ success: false, error: 'Missing ign or rank' });
+  }
+
+  try {
+    const staff = JSON.parse(fs.readFileSync('staff.json', 'utf8'));
+    const member = staff.find(s => s.ign.toLowerCase() === ign.toLowerCase());
+
+    if (!member) {
+      return res.json({ success: false, error: 'Staff member not found' });
+    }
+
+    member.rank = rank;
+
+    fs.writeFileSync('staff.json', JSON.stringify(staff, null, 2));
+
+    res.json({ success: true, updated: { ign, rank } });
+  } catch (err) {
+    console.error(err);
+    res.json({ success: false, error: err.message });
+  }
+});
+
+
 // DELETE staff member by IGN
 app.delete('/staff', (req, res) => {
   const { ign } = req.body;
