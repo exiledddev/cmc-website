@@ -16,8 +16,9 @@
     </video>
     <div class="grid-overlay"></div>
     <header>
-        <nav>
-            <ul>
+        <nav class="navbar">
+            <div class="menu-toggle">☰</div>
+            <ul class="nav-links">
                 <li><a href="index.html" class="anim-ul">Home</a></li>
                 <li><a href="https://crystalmc-1.mcsets.com/" class="anim-ul">Store</a></li>
                 <li><a href="" class="anim-ul">Vote</a></li>
@@ -25,6 +26,14 @@
                 <li><a href="staff.html" class="anim-ul">Staff</a></li>
             </ul>
         </nav>
+        <script>
+            const toggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            toggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        </script>
     </header>
     <h1 class="stafftitle">Our Staff Team</h1>
     <div class="menu-grid">

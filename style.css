@@ -179,7 +179,8 @@ nav {
 	z-index: 10;
 	background: var(--glass-bg);
 	border-bottom: 1px solid var(--glass-border);
-	backdrop-filter: blur(5px);
+	backdrop-filter: blur(50px);
+	-webkit-backdrop-filter: blur(50px);
 	padding: 25px 0px;
 	display: flex;
 	flex-direction: row;
@@ -512,6 +513,116 @@ h1{
 	background: linear-gradient(90deg, magenta, darkmagenta);
 	border:1px solid magenta;
 	box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+}
+
+.menu-toggle {
+	display: none;
+	font-size: 24px;
+	cursor: pointer;
+}
+
+@media (max-width: 768px) {
+	.desc2-text {
+		width: 80%;
+		font-size:16px;
+	}
+	.desc1 h1 {
+		font-size: 60px;
+	}
+	.defdesc {
+		font-size: 16px;
+		text-align: center;
+	}
+	.menu-item {
+		width: 100%;
+	}
+	.menu-grid {
+		grid-template-columns: 1fr;
+		max-width: none;
+	}
+	.logo {
+		margin: 40px auto 20px auto;
+		height:200px;
+		width:200px;
+	}
+	.nav-links {
+		display: none;
+		position: absolute;
+		top: 100%;          
+		left: 20px;
+		
+		left: 50%;
+   		transform: translateX(-50%);
+		margin-top:10px;
+		
+		flex-direction: column;
+		background:  #1b1b1b;
+		border: 1px solid var(--glass-border);
+		padding: 25px 80px;
+		align-items: center;
+		font-weight: 500;
+		border-radius: 20px;
+		gap: 25px;
+		z-index:10;
+	}
+	.navbar {
+		position: relative;
+		display: flex;
+		align-items: center;
+		padding: 5px 15px;
+		margin-top:10px;
+		border-radius:20px;
+	}
+	.menu-toggle {
+		display: block;
+		left:0%;
+		margin-right: auto;
+	}
+	.nav-links.active {
+		display: flex;
+	}
+	.stafftitle {
+		font-size: 30px;
+		margin-top:20px;
+	}
+	.menu-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 0px;
+		margin: 0px auto;
+		justify-content: center;
+		max-width: calc(2 * 204px + 1 * 25px);
+	}
+	.menu-item {
+		width:180px;
+		background: var(--glass-bg);
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		border: 1px solid var(--glass-border);
+		border-radius: 24px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		cursor: pointer;
+		position: relative;
+		overflow: hidden;
+		opacity: 100;
+		z-index:2;
+		padding-bottom: 0px;
+		padding:20px 20px;
+		transition: box-shadow 0.3s ease, opacity 0.3s ease, border .3s ease, transform .3s ease;
+		transform:scale(0.8);
+	}
+	footer {
+		left: 50%;
+		transform: translateX(-50%);
+		position: relative; /* or just remove fixed/absolute */
+  		width: 100%;
+		background: none;
+		border:none;
+	}
 }
 
 /* gotta be really bored to read all this */ 

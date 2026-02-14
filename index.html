@@ -26,8 +26,9 @@
     </video>
     <div class="grid-overlay"></div>
     <header>
-        <nav>
-            <ul>
+        <nav class="navbar">
+            <div class="menu-toggle">☰</div>
+            <ul class="nav-links">
                 <li><a href="index.html" class="anim-ul">Home</a></li>
                 <li><a href="https://crystalmc-1.mcsets.com/" class="anim-ul">Store</a></li>
                 <li><a href="" class="anim-ul">Vote</a></li>
@@ -35,6 +36,14 @@
                 <li><a href="staff.html" class="anim-ul">Staff</a></li>
             </ul>
         </nav>
+        <script>
+            const toggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            toggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        </script>
     </header>
 
     <main>
@@ -57,9 +66,12 @@
             window.addEventListener('DOMContentLoaded', () => {
             const popup = document.getElementById('dcpopup-ovr');
             const closeBtn = document.getElementById('popup-close');
-
+            if (window.innerWidth <= 768) {
+                popup.style.display = 'none'; // exit early on mobile
+            } else {
+                popup.style.display = 'flex'; // show popup on desktop
+            }
             // show popup (mmmm bloatware)
-            popup.style.display = 'flex';
 
             // Close on click X (yes this script is COMPLETELY ripped off of stack overflow, along with some others around here. I don't do JS that much #jshate)
             closeBtn.addEventListener('click', () => {
