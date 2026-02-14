@@ -24,7 +24,7 @@
 }
 
 body {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Poppins', "Helvetica Neue", Arial, sans-serif;
 	background: linear-gradient(to bottom, var(--dark-1), var(--dark-3));
 	color: #ffffff;
 	overflow-x: hidden;
